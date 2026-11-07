@@ -1,0 +1,297 @@
+/* ===========================
+   CalTrack — Purple Theme
+   =========================== */
+
+/* Brand palette */
+.root {
+  -ct-purple:        #D397F8;  /* your main purple */
+  -ct-purple-600:    #B67AF0;
+  -ct-purple-700:    #9B5EDB;
+  -ct-purple-800:    #7F3CC6;
+  -ct-purple-900:    #5E2AA3;
+
+  -ct-bg:            #F9F6FF;   /* soft canvas under cards */
+  -ct-card:          #FFFFFF;
+  -ct-text:          #15161a;
+  -ct-muted:         #8a8f98;
+
+  -fx-accent:        -ct-purple;
+  -fx-text-fill:     -ct-text;
+  -fx-font-family:   "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  -fx-font-size:     13px;
+}
+
+/* Page backgrounds */
+.app-root {
+  -fx-font-family: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial;
+  -fx-font-size: 14px;                /* base text */
+  -color-primary: #D397F8;            /* your purple */
+  -color-primary-700: #B468F1;
+  -color-primary-900: #7F3BD9;
+  -color-danger:  #E24D4B;
+  -color-border:  #CDB1F3;
+  -color-bg-card: #FFFFFF;
+  -color-text:    #1F1F1F;
+  -radius-lg: 12;
+  -radius-pill: 999;
+  -space-1: 4;  -space-2: 8;  -space-3: 12;  -space-4: 16;
+}
+
+/* Cards / panels */
+.card, .text-area, .list-view {
+  -fx-background-color: -ct-card;
+  -fx-background-radius: 14;
+  -fx-border-color: rgba(0,0,0,0.08);
+  -fx-border-radius: 25px;
+  -fx-padding: 10;
+}
+
+.table-view {
+  -fx-background-insets: 0;
+  -fx-padding: 0;                 /* remove extra space causing overflow */
+  -fx-background-radius: 14;
+  -fx-border-radius: 25px;
+}
+
+.table-view .virtual-flow,
+.table-view .clipped-container,
+.table-view .sheet {
+  -fx-padding: 0;                 /* keep content tight */
+}
+
+.table-view .column-header-background {
+  -fx-background-insets: 0;
+  -fx-background-radius: 14 14 0 0;
+}
+
+.table-row-cell, .table-cell {
+  -fx-padding: 8 10;   
+}         
+
+/* Headings */
+.h1 { -fx-font-size: 20px; -fx-font-weight: 700; }
+.h2 { -fx-font-size: 16px; -fx-font-weight: 600; }
+.body { -fx-font-size: 14px; -fx-font-weight: 400; }
+.caption { -fx-font-size: 12px; }
+
+/* Header bar (if you use one) */
+.header-dark {
+  -fx-background-color: linear-gradient(to bottom, -ct-purple-800, -ct-purple-900);
+  -fx-padding: 10 12;
+}
+
+/* Inputs */
+.choice-box {
+  -fx-min-height: 32px;
+  -fx-pref-height: 32px;
+  -fx-background-radius: 10;
+  -fx-background-insets: 0, 1;
+  -fx-padding: 0;                /* important: avoid double vertical padding */
+  -fx-border-width: 2;
+  -fx-border-radius: 10;
+}
+.choice-box > .label {
+  -fx-padding: 0 12;             /* left/right room for text */
+  -fx-text-fill: -ct-text;
+  -fx-alignment: CENTER_LEFT;
+}
+
+.choice-box > .open-button {
+  -fx-padding: 0 10;
+}
+.choice-box > .open-button > .arrow {
+  -fx-background-color: -ct-text;  /* visible arrow on light bg */
+}
+
+/* Popup menu styling (optional) */
+.choice-box:showing > .context-menu,
+.context-menu {
+  -fx-background-radius: 10;
+  -fx-background-color: white;
+  -fx-padding: 6 0;
+}
+.menu-item:focused { -fx-background-color: rgba(155,94,219,0.12); }
+.menu-item .label { -fx-text-fill: -ct-text; }
+
+.text-field, .password-field,.combo-box-base {
+  -fx-background-color: -ct-card;
+  -fx-background-radius: 10;
+  -fx-padding: 6 10;
+  -fx-min-height: 30;
+  -fx-border-color: rgba(0,0,0,0.12);
+  -fx-border-radius: 10;
+  -fx-padding: 8 10;
+}
+.text-field:focused, .password-field:focused, .choice-box:focused, .combo-box-base:focused {
+  -fx-border-color: -ct-purple-700;
+  -fx-effect: dropshadow(gaussian, rgba(155,94,219,0.25), 8, 0.2, 0, 0);
+}
+
+/* Buttons */
+.button {
+  -fx-background-radius: 10;
+  -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 14, 0.25, 0, 3);
+  -fx-text-fill: -ct-text;
+  -fx-padding: 8 16;
+  -fx-font-weight: 700;
+  -fx-cursor: hand;
+}
+.button:hover   { -fx-background-color: rgba(255,255,255,1.0); }
+.button:pressed { -fx-translate-y: 1; }
+
+.button.primary, .button:default {
+  -fx-background-color:
+    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.10)),         /* dark edge */
+    linear-gradient(#cba5ef, #8b45d5),                           /* purple body */
+    linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0));/* top highlight */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 14, 0.25, 0, 3);
+  
+
+  -fx-background-position: center center, center center, 0 0;
+  -fx-background-repeat: no-repeat;
+  -fx-snap-to-pixel: true;
+  -fx-text-fill: rgb(255, 255, 255);
+}
+.button.primary:hover, .button:default:hover {
+  -fx-text-fill: rgba(235, 156, 77, 0.701);
+  -fx-background-radius: 10, 9, 8;              /* three rounded layers */
+  -fx-background-insets: 0, 1, 2;               /* three inset layers */
+  -fx-cursor: hand;
+  -fx-background-color: -ct-purple-700;
+}
+
+/* Ghost button (border only) */
+.button.ghost {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(255,255,255,0.9);
+  -fx-border-radius: 10;
+  -fx-text-fill: white;
+}
+.button.ghost:hover { -fx-border-color: white; }
+
+/* Lists / tables tweaks */
+.list-cell, .table-row-cell { -fx-padding: 8 10; }
+.list-cell:filled:selected, .table-row-cell:filled:selected {
+  -fx-background-color: rgba(155,94,219,0.18);
+}
+
+/* --- Tabs: light bar + black labels --- */
+.tab-pane .tab-header-area {
+  -fx-background-color: -ct-purple; /* #D397F8 */
+}
+
+.tab-pane .tab-header-area .tab {
+  -fx-background-color: #f3b36f7d;
+  -fx-padding: 0 8 0 8;
+}
+
+.tab-pane .tab-header-area .tab .tab-label {
+  -fx-text-fill: #111111;          /* unselected = black */
+  -fx-font-weight: 650;
+}
+
+/* Selected tab: white pill, still black text */
+.tab-pane .tab-header-area .tab:selected {
+  -fx-background-color:  #d580ef;
+  -fx-background-radius: 8 8 0 0;
+}
+.tab-pane .tab-header-area .tab:selected .tab-label {
+  -fx-text-fill: #111111;
+}
+
+/* Content area stays on soft canvas */
+.tab-pane .tab-content-area {
+  -fx-background-color: -ct-bg;
+  -fx-padding: 10;
+}
+
+/* Hide close buttons if any */
+.tab-pane .tab-close-button { -fx-opacity: 0; -fx-padding: 0; }
+
+
+/* Optional: hide close buttons if any */
+.tab-pane .tab-close-button { -fx-opacity: 0; -fx-padding: 0; }
+
+/* Alerts */
+.dialog-pane {
+  -fx-background-color: -ct-card;
+  -fx-background-radius: 12;
+}
+.dialog-pane > *.button-bar > *.container > .button {
+  -fx-background-radius: 8;
+}
+/* ===== 3D Button Base: thickness + highlight + shadow ===== */
+.btn-3d {
+  -fx-padding: 8 16;
+  -fx-font-weight: 700;
+  -fx-text-fill: white;
+  -fx-background-radius: 10, 9, 8;              /* three rounded layers */
+  -fx-background-insets: 0, 1, 2;               /* three inset layers */
+  -fx-cursor: hand;
+
+  /* Three-layer background:
+     1) outer dark edge
+     2) main gradient body
+     3) top highlight */
+  -fx-background-color:
+    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.10)),         /* dark edge */
+    linear-gradient(#cba5ef, #ad7de0),                           /* purple body */
+    linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0));/* top highlight */
+
+  /* Drop shadow makes the button “float” */
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 14, 0.25, 0, 3);
+
+  -fx-background-position: center center, center center, 0 0;
+  -fx-background-repeat: no-repeat;
+  -fx-snap-to-pixel: true;
+  /* Note: CSS transitions are ignored by JavaFX, kept for readability */
+}
+
+/* Color variants: primary (purple) and neutral (gray) */
+.btn-3d.primary {
+  /* Use your theme purple (#D397F8) family for the main gradient (2nd layer) */
+  -fx-background-color:
+    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.10)),
+    linear-gradient(#D397F8, #b07ce7),
+    linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0));
+}
+
+.btn-3d.neutral {
+  -fx-text-fill: #111;
+  -fx-background-color:
+    linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.08)),
+    linear-gradient(#f0f0f3, #cfcfd6),
+    linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0));
+}
+
+/* Hover: a bit brighter with a slightly stronger shadow */
+.btn-3d:hover {
+  -fx-background-color:
+    linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.08)),
+    linear-gradient(#E0BFFB, #A983EA),
+    linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.05));
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.33), 16, 0.28, 0, 4);
+}
+
+/* Pressed: “depress” the button—move down 1px, remove drop shadow, add inner shadow */
+.btn-3d:armed, .btn-3d:pressed {
+  -fx-translate-y: 1;
+  -fx-background-color:
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.12)),
+    linear-gradient(#9B5EDB, #7F3CC6),
+    linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0));
+  -fx-effect: innershadow(gaussian, rgba(0,0,0,0.35), 10, 0.25, 0, 1);
+}
+
+/* Focused: add a subtle purple glow */
+.btn-3d:focused {
+  -fx-effect: dropshadow(gaussian, rgba(211,151,248,0.48), 10, 0.3, 0, 0),
+              dropshadow(gaussian, rgba(0,0,0,0.28), 14, 0.25, 0, 3);
+}
+
+/* Disabled: remove highlight and reduce contrast */
+.btn-3d:disabled {
+  -fx-opacity: 0.6;
+  -fx-effect: none;
+}

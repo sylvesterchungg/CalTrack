@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: #fae1f9;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+   <right>
+  <BarChart fx:id="weekChart" prefHeight="366.0" prefWidth="396.0" BorderPane.alignment="CENTER">
+    <xAxis>
+      <CategoryAxis label="Date" />
+    </xAxis>
+    <yAxis>
+      <NumberAxis label="Calories" />
+    </yAxis>
+  </BarChart>
+   </right>
+   <bottom>
+      <HBox prefHeight="67.0" prefWidth="824.0" styleClass="body" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="100.0" prefWidth="28.0" />
+            <VBox prefHeight="100.0" prefWidth="576.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="80.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="   Daily Goal" />
+                  <ProgressBar fx:id="goalBar" prefWidth="391.0" />
+                  <Label fx:id="goalLabel" alignment="BASELINE_LEFT" prefHeight="18.0" prefWidth="297.0" text="Calories remaining: —" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <VBox prefHeight="46.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <HBox prefHeight="52.0" prefWidth="805.0">
+               <children>
+                  <Region prefHeight="40.0" prefWidth="15.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="80.0" text="Set goal:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="40.0" prefWidth="9.0" />
+                  <TextField fx:id="goalField" prefHeight="35.0" prefWidth="96.0" promptText="e.g. 2200" />
+                  <Region prefHeight="40.0" prefWidth="9.0" />
+                  <Button onAction="#handleApplyGoal" styleClass="btn-3d" text="Apply">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="40.0" prefWidth="450.0" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" onAction="#refresh" prefHeight="34.0" prefWidth="78.0" styleClass="btn-3d" stylesheets="@../styles/app.css" text="Refresh">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <VBox prefHeight="365.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="10.0" prefWidth="411.0" />
+            <PieChart fx:id="macroPie" prefHeight="331.0" prefWidth="411.0" />
+            <Region layoutX="10.0" layoutY="10.0" prefHeight="10.0" prefWidth="411.0" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
